@@ -7,7 +7,7 @@ void Main() {
 };
 
 void GuessTheNumber() {
-    int secretNumber = 42;
+    int secretNumber = RandomNumberGenerator();
     Console.WriteLine("Guess a number: ");
     int answer = Convert.ToInt32(Console.ReadLine()); 
     if(answer == secretNumber ) {
@@ -28,3 +28,9 @@ void Guesses() {
         Console.WriteLine("All out of guesses");
     }
 };
+
+static int RandomNumberGenerator() {
+    Random r = new Random();
+    int genRand= r.Next(0,100);
+    return genRand;
+}
