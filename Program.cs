@@ -3,23 +3,36 @@
 Main();
 
 void Main() {
-    Guesses();
+    GuessTheNumber();
 };
 
 void GuessTheNumber() {
+    int guess = 0;
+
     int secretNumber = RandomNumberGenerator();
+    Console.WriteLine(secretNumber);
     Console.WriteLine("Guess a number: ");
     int answer = Convert.ToInt32(Console.ReadLine()); 
-    if(answer == secretNumber ) {
-        Console.WriteLine("Success");
-    } else {
-        Console.WriteLine("Keep Guessing");
+
+    while (guess < 4) {
+        guess ++;
+        if(answer == secretNumber){
+            Console.WriteLine("Success");
+            break;
+        }else {
+             Console.WriteLine("Guess a number: ");
+            answer = Convert.ToInt32(Console.ReadLine()); 
+            
+        }
     }
+
+   
 };
 
 
-void Guesses() {
+ /* void Guesses() {
     int guess = 0;
+    
     while ( guess < 4) {
         guess ++;
         GuessTheNumber();
@@ -28,7 +41,7 @@ void Guesses() {
         Console.WriteLine("All out of guesses");
     }
 };
-
+*/
 static int RandomNumberGenerator() {
     Random r = new Random();
     int genRand= r.Next(0,100);
