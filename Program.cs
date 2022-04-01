@@ -11,29 +11,79 @@ void GuessTheNumber() {
     int remaindingNum;
     int secretNumber = RandomNumberGenerator();
     Console.WriteLine(secretNumber);
+    Console.WriteLine("Choose a difficulty: 1 = easy, 2 = medium, 3 = hard");
+    int difficulty = Convert.ToInt32(Console.ReadLine());
     Console.WriteLine("Guess a number: ");
     int answer = Convert.ToInt32(Console.ReadLine()); 
 
-    while (guess < 4) {
+    if(difficulty == 1){
+        while (guess < 8) {
         guess ++;
-        if(answer == secretNumber){
-            Console.WriteLine("Success");
-            break;
-        }else if (answer>secretNumber){
-            Console.WriteLine("Your guess was too high!");
-            Console.WriteLine("Guess a number: ");
-            answer = Convert.ToInt32(Console.ReadLine());
-            remaindingNum= 4-guess;
-            Console.WriteLine($"You have {remaindingNum} guesses left!");
-            
-        }else {
-            Console.WriteLine("Your guess was too low!");
-            Console.WriteLine("Guess a number: ");
-            answer = Convert.ToInt32(Console.ReadLine());
-            remaindingNum= 4-guess;
-            Console.WriteLine($"You have {remaindingNum} guesses left!");
+            if(answer == secretNumber){
+                Console.WriteLine("Success");
+                break;
+            }else if (answer>secretNumber){
+                Console.WriteLine("Your guess was too high!");
+                Console.WriteLine("Guess a number: ");
+                answer = Convert.ToInt32(Console.ReadLine());
+                remaindingNum= 8-guess;
+                Console.WriteLine($"You have {remaindingNum} guesses left!");
+                
+            }else {
+                Console.WriteLine("Your guess was too low!");
+                Console.WriteLine("Guess a number: ");
+                answer = Convert.ToInt32(Console.ReadLine());
+                remaindingNum= 8-guess;
+                Console.WriteLine($"You have {remaindingNum} guesses left!");
+            }
         }
+    } else if(difficulty == 2) {
+        while (guess < 6) {
+        guess ++;
+            if(answer == secretNumber){
+                Console.WriteLine("Success");
+                break;
+            }else if (answer>secretNumber){
+                Console.WriteLine("Your guess was too high!");
+                Console.WriteLine("Guess a number: ");
+                answer = Convert.ToInt32(Console.ReadLine());
+                remaindingNum= 6-guess;
+                Console.WriteLine($"You have {remaindingNum} guesses left!");
+                
+            }else {
+                Console.WriteLine("Your guess was too low!");
+                Console.WriteLine("Guess a number: ");
+                answer = Convert.ToInt32(Console.ReadLine());
+                remaindingNum= 6-guess;
+                Console.WriteLine($"You have {remaindingNum} guesses left!");
+            }
+        }
+    } else if(difficulty == 3) {
+        while (guess < 4) {
+        guess ++;
+            if(answer == secretNumber){
+                Console.WriteLine("Success");
+                break;
+            }else if (answer>secretNumber){
+                Console.WriteLine("Your guess was too high!");
+                Console.WriteLine("Guess a number: ");
+                answer = Convert.ToInt32(Console.ReadLine());
+                remaindingNum= 4-guess;
+                Console.WriteLine($"You have {remaindingNum} guesses left!");
+                
+            }else {
+                Console.WriteLine("Your guess was too low!");
+                Console.WriteLine("Guess a number: ");
+                answer = Convert.ToInt32(Console.ReadLine());
+                remaindingNum= 4-guess;
+                Console.WriteLine($"You have {remaindingNum} guesses left!");
+            }
+        }
+    } else {
+        Console.WriteLine("Not a valid difficulty");
     }
+
+    
 
    
 };
