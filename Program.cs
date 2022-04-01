@@ -8,7 +8,7 @@ void Main() {
 
 void GuessTheNumber() {
     int guess = 0;
-
+    int remaindingNum;
     int secretNumber = RandomNumberGenerator();
     Console.WriteLine(secretNumber);
     Console.WriteLine("Guess a number: ");
@@ -20,8 +20,10 @@ void GuessTheNumber() {
             Console.WriteLine("Success");
             break;
         }else {
-             Console.WriteLine("Guess a number: ");
-            answer = Convert.ToInt32(Console.ReadLine()); 
+            Console.WriteLine("Guess a number: ");
+            answer = Convert.ToInt32(Console.ReadLine());
+            remaindingNum= 4-guess;
+            Console.WriteLine($"You have {remaindingNum} guesses left!");
             
         }
     }
